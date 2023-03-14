@@ -18,6 +18,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
+          fetch-depth: '0'
       - name: npm install
         run: npm install
       - name: lint
