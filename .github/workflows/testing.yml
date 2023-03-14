@@ -11,19 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: github context
-        if [[ "$GITHUB_COMMIT_MESSAGE" != *"#skip"* ]]
+        if $ {{ github.event.head_commit.message != '#skip' }}
         run:
           env:
             GITHUB_CONTEXT: ${{ toJson(github) }}
           run: echo "$GITHUB_CONTEXT"
       - name: commits
-        if [[ "$GITHUB_COMMIT_MESSAGE" != *"#skip"* ]]
+        if $ {{ github.event.head_commit.message != '#skip' }}
         run:
           env:
             COMMITS: ${{ toJson(github.event.commits) }}
           run: echo "$COMMITS"
       - name: commit messages
-        if [[ "$GITHUB_COMMIT_MESSAGE" == *"#skip"* ]]
+        if $ {{ github.event.head_commit.message != '#skip' }}
         run:
           env:
             COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
