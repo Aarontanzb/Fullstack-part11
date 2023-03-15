@@ -8,7 +8,7 @@ on:
     branches: [main]
     types:
       [opened, synchronize]
-      # note that your "main" branch might be called main instead of master
+      # Note that your "main" branch might be called main instead of master
 
 jobs:
   simple_deployment_pipeline:
