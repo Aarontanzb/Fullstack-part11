@@ -45,14 +45,14 @@ jobs:
         uses: rjstone/discord-webhook-notify@v1
         if: failure()
         with:
-          severity: error
+          severity: info
           details: Test Failed!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Test Cancelled
         uses: rjstone/discord-webhook-notify@v1
         if: cancelled()
         with:
-          severity: warn
+          severity: info
           details: Test Cancelled!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
   tag_release:
